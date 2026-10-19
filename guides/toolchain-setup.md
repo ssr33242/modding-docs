@@ -16,7 +16,7 @@
 
 - Wrapper (`gradlew`) — сам скачает нужную версию по `gradle-wrapper.properties`.
 - Локальная установка — быстрее, если версия уже есть:
-  `C:\Users\satda\MCreatorWorkspaces\modgen\.tools\gradle-<версия>`
+  `C:\Users\satda\Desktop\Modding\.tools\gradle-<версия>`
 
 Полезные флаги:
 
