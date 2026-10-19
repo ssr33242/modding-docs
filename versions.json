@@ -1,0 +1,27 @@
+{
+  "verified": [
+    {
+      "minecraft": "1.21.1",
+      "loader": "fabric",
+      "gradle": "9.8.0",
+      "jdk": "25",
+      "loom": "1.19.1",
+      "yarn": "1.21.1+build.3",
+      "loader_version": "0.16.9",
+      "api": "0.116.17+1.21.1",
+      "verified_jar": "examplemod-1.0.0.jar",
+      "verified_at": "2026-10-19"
+    },
+    {
+      "minecraft": "1.21.1",
+      "loader": "neoforge",
+      "gradle": "9.8.0",
+      "jdk": "21",
+      "moddevgradle": "2.0.148",
+      "neoforge": "21.1.264",
+      "verified_jar": "examplenm-1.0.0.jar",
+      "verified_at": "2026-10-19"
+    }
+  ],
+  "notes": "Строки добавлены только после успешной сборки .jar."
+}
