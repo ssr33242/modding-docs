@@ -27,3 +27,16 @@
 - NeoForge: https://docs.neoforged.net/
 - Forge: https://docs.minecraftforge.net/
 - Minecraft Wiki: https://minecraft.wiki/
+
+## Первоисточники (форки в этом аккаунте)
+
+- Fabric — https://github.com/ssr33242/fabric-docs
+- NeoForge — https://github.com/ssr33242/neoforge-docs
+- Forge — https://github.com/ssr33242/forge-docs
+
+## Онлайн-документация
+
+- Fabric: https://docs.fabricmc.net/
+- NeoForge: https://docs.neoforged.net/
+- Forge: https://docs.minecraftforge.net/
+- Minecraft Wiki: https://minecraft.wiki/
