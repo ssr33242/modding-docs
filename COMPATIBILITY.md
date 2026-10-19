@@ -36,7 +36,7 @@
 
 ## Gradle
 
-- Локальные дистрибутивы: `C:\Users\satda\MCreatorWorkspaces\modgen\.tools\gradle-<версия>`
+- Локальные дистрибутивы: `C:\Users\satda\Desktop\Modding\.tools\gradle-<версия>`
 - Установлены: 8.10.2, 8.12, 9.8.0
 
 ## Версии ядер (живые данные)
