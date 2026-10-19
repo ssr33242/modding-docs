@@ -1,0 +1,35 @@
+plugins {
+    id 'java-library'
+    id 'net.neoforged.moddev' version '2.0.148'
+}
+
+version = '1.0.0'
+group = 'com.example'
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+neoForge {
+    version = "21.1.264"
+
+    parchment {
+        // optional mappings; omitted to keep the build hermetic
+    }
+
+    runs {
+        client {
+            client()
+        }
+        server {
+            server()
+        }
+    }
+
+    mods {
+        "examplenm" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+repositories {
+}
