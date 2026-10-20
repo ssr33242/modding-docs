@@ -22,6 +22,7 @@ MinecraftForge, NeoForged, FabricMC, PaperMC).
 - `knowledge/knowledge-map.md` — **начни отсюда**: что где лежит и как выбрать
 - `docs/` — справочники по конкретным темам (официальные источники):
   - `docs/java/versions.md` — актуальные версии Minecraft и загрузчиков
+  - `docs/java/unsupported.md` — **что не собирается и почему** (Fabric/Quilt на 26.x, пустой jar, обходы)
   - `docs/java/commands.md` — команды через `/` (Brigadier, регистрация)
   - `docs/java/events.md` — события (Forge/NeoForge)
   - `docs/java/menus-gui.md` — экраны и меню (Screen, AbstractContainerScreen)
@@ -85,6 +86,8 @@ MinecraftForge, NeoForged, FabricMC, PaperMC).
 Forge и Paper идут следом за Minecraft с разной задержкой — проверяйте каждое
 ядро отдельно. **Всегда проверяйте, что итоговый jar не пустой** (BUILD
 SUCCESSFUL + пустой jar = провал).
+
+Разбор всех неподдерживаемых случаев — в `docs/java/unsupported.md`.
 
 ## Официальная документация
 
