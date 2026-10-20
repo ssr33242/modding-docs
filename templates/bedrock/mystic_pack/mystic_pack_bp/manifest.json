@@ -1,0 +1,30 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Mystic Pack — предмет, блок, существо",
+    "description": "Демо-аддон: магический амулет, мана-блок и существо-хранитель + скрипт",
+    "uuid": "a1b2c3d4-1111-4a01-9f01-000000000001",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "a1b2c3d4-1111-4a02-9f02-000000000002",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "entry": "scripts/main.js",
+      "uuid": "a1b2c3d4-1111-4a03-9f03-000000000003",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.13.0"
+    }
+  ]
+}
