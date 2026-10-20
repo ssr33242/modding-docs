@@ -36,6 +36,9 @@
   - `guides/bedrock-build.md` — сборка и упаковка аддона
   - `guides/bedrock-repos.md` — репозитории и площадки Bedrock
   - `guides/bedrock-servers.md` — Geyser, Floodgate, Nukkit, PocketMine
+  - `guides/repos-catalog.md` — большой каталог репозиториев моддинга
+  - `guides/tools.md` — инструменты моддинга по задачам
+  - `guides/resources.md` — справочник ссылок (документация, API версий)
   - `guides/toolchain-setup.md` — JDK, Gradle, кэш
 - Шаблоны проектов → `templates/<тип>/`
   - `templates/fabric/`, `templates/neoforge/`, `templates/forge/`, `templates/quilt/`
