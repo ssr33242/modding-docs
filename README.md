@@ -31,6 +31,7 @@ MinecraftForge, NeoForged, FabricMC, PaperMC).
   - `docs/bedrock/forms-menus.md` — меню: формы, диалоги NPC, JSON UI
   - `docs/bedrock/json-ui.md` — JSON UI: экраны и элементы
   - `docs/bedrock/scripting.md` — скрипты `@minecraft/server`
+  - `docs/bedrock/validation.md` — проверка аддона перед сборкой (чек-лист)
   - `docs/programming/repos.md` — официальные репозитории по программированию
 - `templates/` — шаблоны проектов:
   - `fabric/`, `neoforge/`, `forge/`, `quilt/` — Java-моды
@@ -59,6 +60,16 @@ MinecraftForge, NeoForged, FabricMC, PaperMC).
 - Bedrock Edition: актуальная версия — **1.26.50.4**.
 - Всегда проверяйте версии в живых источниках (см. `docs/java/versions.md`),
   а не по памяти.
+
+## Проверено реальной сборкой
+
+Эти комбинации не «документация по слухам», а результат настоящей сборки:
+
+- **Java-мод, NeoForge 26.3** — собрано `mysticmod-1.0.0.jar`: JDK 25,
+  Gradle 9.2.1 (wrapper), ModDevGradle 2.0.148, `neo_version=26.3.0.95`.
+  Шаблон — официальный `github.com/NeoForgeMDKs/MDK-26.3-ModDevGradle`.
+- **Аддон Bedrock** — собран `mystic_amulet.mcaddon` (BP + RP + скрипт),
+  ноль ошибок и предупреждений по чек-листу `docs/bedrock/validation.md`.
 
 ## Официальная документация
 
