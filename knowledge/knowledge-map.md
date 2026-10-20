@@ -3,6 +3,10 @@
 Этот файл — точка входа для быстрого понимания, **где что искать**. Пользуйся им
 перед тем, как читать длинные гайды.
 
+> **Свежие версии (октябрь 2026):** Minecraft Java — релиз `26.3` (нумерация
+> сменилась с `1.21.x` на `26.x`: `26.1`, `26.2`, `26.3`); Bedrock —
+> `1.26.50.4`. Подробности — `docs/java/versions.md`.
+
 ## Сначала определи платформу
 
 - **Minecraft Java Edition** → моды (Fabric, NeoForge, Forge, Quilt) и плагины
@@ -26,6 +30,18 @@
 
 - Матрица версий и требований → `COMPATIBILITY.md`
 - Машиночитаемые версии → `versions.json`
+- **Тематические справочники → `docs/`**
+  - `docs/java/versions.md` — версии Minecraft и загрузчиков, конфиги Gradle
+  - `docs/java/commands.md` — свои команды через `/` (Brigadier)
+  - `docs/java/events.md` — события: шины, подписка, приоритеты
+  - `docs/java/menus-gui.md` — экраны (Screen) и меню (AbstractContainerMenu)
+  - `docs/java/registries.md` — регистрация блоков/предметов и т.д.
+  - `docs/bedrock/addon-structure.md` — структура аддона, манифесты, UUID, `.mcaddon`
+  - `docs/bedrock/commands.md` — все команды Bedrock + свои команды через скрипты
+  - `docs/bedrock/forms-menus.md` — меню: формы (`server-ui`), диалоги NPC, JSON UI
+  - `docs/bedrock/json-ui.md` — JSON UI: экраны, элементы, наследование `@`
+  - `docs/bedrock/scripting.md` — скрипты `@minecraft/server`, события, таймеры
+  - `docs/programming/repos.md` — официальные репозитории по программированию
 - Гайды (пошагово) → `guides/`
   - `guides/from-zero-to-jar.md` — Fabric и NeoForge
   - `guides/forge-from-zero-to-jar.md` — Forge
@@ -58,6 +74,27 @@
   NeoForge/Forge → `DeferredRegister.create(...)`.
 - **Ресурсы**: у всех одинаковая схема — `assets/<mod_id>/` и `data/<mod_id>/`.
 
+## Команды и меню (кратко)
+
+**Java Edition:**
+
+- Команда регистрируется в `RegisterCommandsEvent` через Brigadier
+  (`Commands.literal(...).then(...).executes(...)`). Подробно — `docs/java/commands.md`.
+- GUI: `Screen` для простых экранов, `AbstractContainerScreen` — для меню с
+  слотами. Регистрация экрана — `RegisterMenuScreensEvent`. Подробно —
+  `docs/java/menus-gui.md`.
+
+**Bedrock Edition:**
+
+- Все команды — уровень прав (`0`–`4`) и «требует читов». Полный список —
+  `docs/bedrock/commands.md`.
+- Своя команда — через `@minecraft/server` в `system.beforeEvents.startup`,
+  `customCommandRegistry.registerCommand(...)`.
+- Меню: `ActionFormData` (кнопки), `MessageFormData` (Да/Нет),
+  `ModalFormData` (поля) — `docs/bedrock/forms-menus.md`.
+- Меню у NPC без кода — диалоги (`/dialogue` + файл сцены).
+- Полный интерфейс — JSON UI (`_ui_defs.json` + файлы экранов).
+
 ## Чем плагины отличаются
 
 - **Манифест**: `plugin.yml` в корне ресурсов.
@@ -78,7 +115,10 @@
 - **UUID должны быть разными**: header.uuid и каждый modules[].uuid.
 - **Упаковка**: `.mcaddon` (оба пакета) или `.mcpack` (один пакет).
 - **Структура .mcaddon**: в корне zip папки `behavior_packs/` и `resource_packs/`.
-- **Скрипты** требуют включённых **Beta APIs** в мире.
+- **Скрипты** требуют включённых **Beta APIs** в мире (только если версия
+  модуля содержит `beta`).
+- **Версия движка** (`min_engine_version`) и версия скриптового API — разные
+  вещи.
 
 ## Минимальный чек-лист «собирается и запускается»
 
@@ -99,7 +139,7 @@
 1. `manifest.json` валиден, UUID уникальны и различны.
 2. `version`/`min_engine_version` — массивы.
 3. Все идентификаторы (`example:ruby`) совпадают между BP и RP.
-4. Для скриптов объявлен модуль и включены Beta APIs.
+4. Для скриптов объявлен `script`-модуль и зависимость `@minecraft/server`.
 
 ## Типовые грабли (проверено на практике)
 
@@ -112,3 +152,10 @@
 - Команда плагина молчит → забыта регистрация `setExecutor` в `onEnable()`.
 - Bedrock-пакет не импортируется → `version` записан строкой вместо массива.
 - Bedrock-аддон не виден в игре → одинаковые UUID или неверная структура zip.
+- Команда Bedrock не работает → неверный уровень прав или не включены читы.
+- Форма Bedrock не показывается → игрок занят (`FormCancelationReason.UserBusy`).
+- Своя команда Bedrock не появляется → регистрация не в
+  `system.beforeEvents.startup`.
+- Java-команда не видна → регистрация вне `RegisterCommandsEvent`.
+- Java-событие не срабатывает → обработчик не на той шине (game vs mod).
+- Подписка на абстрактное событие (`BlockEvent`, `PlayerEvent`) → краш игры.
