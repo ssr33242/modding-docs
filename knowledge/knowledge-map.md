@@ -41,6 +41,7 @@
   - `docs/bedrock/forms-menus.md` — меню: формы (`server-ui`), диалоги NPC, JSON UI
   - `docs/bedrock/json-ui.md` — JSON UI: экраны, элементы, наследование `@`
   - `docs/bedrock/scripting.md` — скрипты `@minecraft/server`, события, таймеры
+  - `docs/bedrock/validation.md` — проверка аддона перед сборкой (чек-лист)
   - `docs/programming/repos.md` — официальные репозитории по программированию
 - Гайды (пошагово) → `guides/`
   - `guides/from-zero-to-jar.md` — Fabric и NeoForge
