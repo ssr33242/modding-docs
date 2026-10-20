@@ -64,6 +64,20 @@
       "mdk": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.28/forge-1.20.1-47.4.28-mdk.zip",
       "verified_jar": "examplemod-1.0.0.jar",
       "verified_at": "2026-10-20"
+    },
+    {
+      "minecraft": "1.20.6",
+      "loader": "quilt",
+      "gradle": "8.9",
+      "jdk": "21",
+      "quilt_loom": "1.7.4",
+      "quilt_loader": "0.26.3",
+      "quilt_mappings": "1.20.6+build.6",
+      "quilted_fabric_api": "10.0.0-alpha.3+0.100.4-1.20.6",
+      "qsl": "9.0.0-alpha.1+1.20.6",
+      "note": "официальный QuiltMC/quilt-template-mod (ветка 1.20.6). remapJar требует mod-зависимостей, иначе пустой jar",
+      "verified_jar": "example_mod-1.0.0+1.20.6.jar",
+      "verified_at": "2026-10-20"
     }
   ],
   "toolchain_matrix": [
@@ -190,6 +204,10 @@
     "fabric_note": "Yarn останавливается на 1.21.11 — Fabric ещё не поддерживает 26.x",
     "forge_1_20_1_latest": "47.4.28",
     "paper_26_3_latest_build": 207,
-    "jdk_note": "Fabric Loom 1.18.x и NeoForge 26.x требуют JDK 25; Forge 1.20.1 — JDK 17"
+    "jdk_note": "Fabric Loom 1.18.x и NeoForge 26.x требуют JDK 25; Forge 1.20.1 — JDK 17",
+    "quilt_latest_supported": "1.20.6 (полный набор: mappings+loader+QSL+quilted-fabric-api)",
+    "quilt_mappings_latest": "1.21.11",
+    "quilt_supports_26_3": false,
+    "quilt_note": "маппинги Quilt до 1.21.11, но quilted-fabric-api/QSL полны только на 1.20.6 — на этой версии мод реально собирается"
   }
 }
