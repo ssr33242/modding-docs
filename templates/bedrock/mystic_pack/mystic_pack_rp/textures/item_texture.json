@@ -1,0 +1,9 @@
+{
+  "resource_pack_name": "mystic_pack",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "mystic_amulet": {
+      "textures": "textures/items/mystic_amulet"
+    }
+  }
+}
