@@ -32,6 +32,38 @@
       "mdk": "https://github.com/NeoForgeMDKs/MDK-26.3-ModDevGradle",
       "verified_jar": "mysticmod-1.0.0.jar",
       "verified_at": "2026-10-20"
+    },
+    {
+      "minecraft": "1.21",
+      "loader": "fabric",
+      "gradle": "9.7.1",
+      "jdk": "25",
+      "loom": "1.18.4",
+      "loader_version": "0.19.5",
+      "fabric_api": "0.102.0+1.21",
+      "note": "официальный fabric-example-mod; Loom 1.18.4 требует JDK 25 (не 21!)",
+      "verified_jar": "modid-1.0.0.jar",
+      "verified_at": "2026-10-20"
+    },
+    {
+      "minecraft": "26.3",
+      "loader": "paper",
+      "plugin": "paper-api 26.3.build.207-stable",
+      "maven": "3.9.9",
+      "jdk": "25",
+      "build_tool": "maven",
+      "verified_jar": "exampleplugin-1.0.0.jar",
+      "verified_at": "2026-10-20"
+    },
+    {
+      "minecraft": "1.20.1",
+      "loader": "forge",
+      "gradle": "8.8",
+      "jdk": "17",
+      "forge": "47.4.28",
+      "mdk": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.28/forge-1.20.1-47.4.28-mdk.zip",
+      "verified_jar": "examplemod-1.0.0.jar",
+      "verified_at": "2026-10-20"
     }
   ],
   "toolchain_matrix": [
@@ -134,7 +166,11 @@
       "@minecraft/server-admin": "1.0.0-beta",
       "@minecraft/server-net": "1.0.0-beta",
       "@minecraft/server-gametest": "1.0.0-beta"
-    }
+    },
+    "addons_verified": [
+      "mystic_amulet.mcaddon (предмет+скрипт)",
+      "mystic_creatures.mcaddon (сущность+блок+скрипт)"
+    ]
   },
   "sources": {
     "minecraft_manifest": "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json",
@@ -147,5 +183,13 @@
     "npm_server": "https://registry.npmjs.org/@minecraft/server",
     "npm_server_ui": "https://registry.npmjs.org/@minecraft/server-ui"
   },
-  "notes": "Строки в verified добавлены только после успешной сборки .jar. toolchain_matrix — официальное соответствие версий. live_versions получены из meta/maven/npm API на дату 2026-10-20. ВАЖНО: Minecraft Java перешёл на нумерацию 26.x (после 1.21.11). Пакетная прошивка Paper v2 закрыта, актуальна fill.papermc.io/v3."
+  "notes": "Строки в verified добавлены только после успешной сборки .jar. toolchain_matrix — официальное соответствие версий. live_versions получены из meta/maven/npm API на дату 2026-10-20. ВАЖНО: Minecraft Java перешёл на нумерацию 26.x (после 1.21.11). Пакетная прошивка Paper v2 закрыта, актуальна fill.papermc.io/v3.",
+  "version_notes": {
+    "fabric_latest_game_version": "1.21.11",
+    "fabric_supports_26_3": false,
+    "fabric_note": "Yarn останавливается на 1.21.11 — Fabric ещё не поддерживает 26.x",
+    "forge_1_20_1_latest": "47.4.28",
+    "paper_26_3_latest_build": 207,
+    "jdk_note": "Fabric Loom 1.18.x и NeoForge 26.x требуют JDK 25; Forge 1.20.1 — JDK 17"
+  }
 }
