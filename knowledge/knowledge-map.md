@@ -32,6 +32,7 @@
 - Машиночитаемые версии → `versions.json`
 - **Тематические справочники → `docs/`**
   - `docs/java/versions.md` — версии Minecraft и загрузчиков, конфиги Gradle
+  - `docs/java/unsupported.md` — **что не собирается**: Fabric/Quilt на 26.x, пустой jar, обходы
   - `docs/java/commands.md` — свои команды через `/` (Brigadier)
   - `docs/java/events.md` — события: шины, подписка, приоритеты
   - `docs/java/menus-gui.md` — экраны (Screen) и меню (AbstractContainerMenu)
@@ -160,3 +161,7 @@
 - Java-команда не видна → регистрация вне `RegisterCommandsEvent`.
 - Java-событие не срабатывает → обработчик не на той шине (game vs mod).
 - Подписка на абстрактное событие (`BlockEvent`, `PlayerEvent`) → краш игры.
+- `BUILD SUCCESSFUL`, но jar пустой → не задан ни один `modImplementation`,
+  Loom ремапит 0 модов. Проверяй наличие `.class` внутри jar.
+- Fabric/Quilt не собираются на 26.x → нет маппингов Yarn/Quilt-mappings
+  (до 1.21.11). Подробно — `docs/java/unsupported.md`.
