@@ -4,19 +4,34 @@
 аддоны. Матрица совместимости, проверенные шаблоны и пошаговые инструкции.
 
 Всё здесь **проверено реальной сборкой** — версии и требования не выдуманы.
+Справочные материалы опираются на **официальные источники** (Mojang, Microsoft,
+MinecraftForge, NeoForged, FabricMC, PaperMC).
 
 ## Что покрывает
 
 - **Java-моды**: Fabric, NeoForge, Forge, Quilt
 - **Серверные плагины**: Bukkit, Spigot, Paper
 - **Аддоны**: Java-аддоны, аддоны-плагины, Bedrock-аддоны
-- **Bedrock Edition**: поведенческие и ресурсные пакеты, Script API, площадки
+- **Bedrock Edition**: поведенческие и ресурсные пакеты, Script API, меню,
+  JSON UI, команды, площадки
 - **Серверы Bedrock**: Geyser, Floodgate, Nukkit, PocketMine, Dragonfly
 
 ## Структура
 
 - `COMPATIBILITY.md` — матрица «версия Minecraft ↔ ядро ↔ Gradle ↔ JDK»
 - `knowledge/knowledge-map.md` — **начни отсюда**: что где лежит и как выбрать
+- `docs/` — справочники по конкретным темам (официальные источники):
+  - `docs/java/versions.md` — актуальные версии Minecraft и загрузчиков
+  - `docs/java/commands.md` — команды через `/` (Brigadier, регистрация)
+  - `docs/java/events.md` — события (Forge/NeoForge)
+  - `docs/java/menus-gui.md` — экраны и меню (Screen, AbstractContainerScreen)
+  - `docs/java/registries.md` — регистрация блоков, предметов и прочего
+  - `docs/bedrock/addon-structure.md` — структура аддона, манифесты, UUID
+  - `docs/bedrock/commands.md` — команды Bedrock через `/` + свои команды
+  - `docs/bedrock/forms-menus.md` — меню: формы, диалоги NPC, JSON UI
+  - `docs/bedrock/json-ui.md` — JSON UI: экраны и элементы
+  - `docs/bedrock/scripting.md` — скрипты `@minecraft/server`
+  - `docs/programming/repos.md` — официальные репозитории по программированию
 - `templates/` — шаблоны проектов:
   - `fabric/`, `neoforge/`, `forge/`, `quilt/` — Java-моды
   - `plugin/` — плагин Paper (Maven + Gradle)
@@ -26,7 +41,7 @@
 - `guides/repos-catalog.md` — **большой каталог репозиториев** по всем темам
 - `guides/tools.md` — инструменты моддинга: сборка, модели, датапаки, отладка
 - `guides/resources.md` — справочник ссылок: документация, API версий, комьюнити
-- `versions.json` — зафиксированные рабочие комбинации версий
+- `versions.json` — зафиксированные рабочие комбинации версий + живые версии
 
 ## Быстрый старт
 
@@ -37,6 +52,14 @@
 5. Собери (`gradle build` / `mvn package` / zip).
 6. Готовый файл — в `build/libs/`, `target/` или `.mcaddon`.
 
+## Важно про версии
+
+- Minecraft: Java Edition сменил нумерацию: после `1.21.11` идут `26.1`,
+  `26.2`, `26.3`. Актуальный релиз — **26.3**.
+- Bedrock Edition: актуальная версия — **1.26.50.4**.
+- Всегда проверяйте версии в живых источниках (см. `docs/java/versions.md`),
+  а не по памяти.
+
 ## Официальная документация
 
 - Fabric: https://docs.fabricmc.net/
@@ -45,6 +68,9 @@
 - Quilt: https://wiki.quiltmc.org/
 - Paper: https://docs.papermc.io/
 - Bedrock (Creator): https://learn.microsoft.com/minecraft/creator/
+- Bedrock-схемы: https://github.com/MicrosoftDocs/minecraft-creator
+- Bedrock-примеры: https://github.com/Mojang/bedrock-samples
+- Brigadier (команды): https://github.com/Mojang/brigadier
 - Minecraft Wiki: https://minecraft.wiki/
 
 ## Первоисточники (форки в этом аккаунте)
@@ -52,4 +78,3 @@
 - Fabric — https://github.com/ssr33242/fabric-docs
 - NeoForge — https://github.com/ssr33242/neoforge-docs
 - Forge — https://github.com/ssr33242/forge-docs
-- Bedrock-примеры Mojang — https://github.com/Mojang/bedrock-samples
