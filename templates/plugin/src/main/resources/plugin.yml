@@ -1,0 +1,22 @@
+name: ExamplePlugin
+version: '${project.version}'
+main: com.example.exampleplugin.ExamplePlugin
+api-version: '1.21'
+author: Example
+description: Пример плагина для Paper/Spigot
+website: https://example.com
+
+commands:
+  example:
+    description: Пример команды плагина
+    usage: /example [аргумент]
+    permission: exampleplugin.use
+    aliases: [ex, exm]
+
+permissions:
+  exampleplugin.use:
+    description: Разрешает использовать команду /example
+    default: true
+  exampleplugin.admin:
+    description: Админ-права плагина
+    default: op
