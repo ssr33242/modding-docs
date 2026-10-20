@@ -66,10 +66,19 @@ MinecraftForge, NeoForged, FabricMC, PaperMC).
 Эти комбинации не «документация по слухам», а результат настоящей сборки:
 
 - **Java-мод, NeoForge 26.3** — собрано `mysticmod-1.0.0.jar`: JDK 25,
-  Gradle 9.2.1 (wrapper), ModDevGradle 2.0.148, `neo_version=26.3.0.95`.
+  Gradle 9.2.1, ModDevGradle 2.0.148, `neo_version=26.3.0.95`.
   Шаблон — официальный `github.com/NeoForgeMDKs/MDK-26.3-ModDevGradle`.
-- **Аддон Bedrock** — собран `mystic_amulet.mcaddon` (BP + RP + скрипт),
-  ноль ошибок и предупреждений по чек-листу `docs/bedrock/validation.md`.
+- **Java-мод, Fabric** — собран `modid-1.0.0.jar` на MC 1.21 (Loom 1.18.4,
+  Gradle 9.7.1). Важно: Loom 1.18.x требует **JDK 25**, не 21.
+- **Плагин, Paper 26.3** — собран `exampleplugin-1.0.0.jar`
+  (`paper-api 26.3.build.207-stable`, Maven 3.9.9, JDK 25).
+- **Аддон Bedrock** — `mystic_amulet.mcaddon` (предмет) и
+  `mystic_creatures.mcaddon` (сущность + блок + скрипт): валидны по
+  чек-листу `docs/bedrock/validation.md`.
+
+Важно про поддержку версий: **Fabric пока не поддерживает MC 26.x** — маппинги
+Yarn останавливаются на `1.21.11`. NeoForge/Forge и Paper идут следом за
+Minecraft с разной задержкой — проверяйте каждое ядро отдельно.
 
 ## Официальная документация
 
