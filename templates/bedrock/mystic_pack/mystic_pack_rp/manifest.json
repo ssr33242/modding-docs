@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Mystic Pack — ресурсы",
+    "description": "Текстуры и локализация для Mystic Pack",
+    "uuid": "a1b2c3d4-2222-4b01-8e01-000000000011",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "a1b2c3d4-2222-4b02-8e02-000000000012",
+      "version": [1, 0, 0]
+    }
+  ]
+}
