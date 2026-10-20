@@ -1,0 +1,6 @@
+item.mystic.amulet.name=Mystic Amulet
+tile.mystic.mana_block.name=Mana Block
+entity.mystic.guardian_pet.name=Guardian Pet
+item.spawn_egg.entity.mystic.guardian_pet.name=Guardian Pet Spawn Egg
+pack.name=Mystic Pack
+pack.description=Item, block and guardian pet
