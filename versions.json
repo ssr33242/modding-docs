@@ -23,5 +23,78 @@
       "verified_at": "2026-10-19"
     }
   ],
-  "notes": "Строки добавлены только после успешной сборки .jar."
+  "toolchain_matrix": [
+    {
+      "loader": "forge",
+      "minecraft": "1.21.x",
+      "forge_versions": "52.x-61.x",
+      "forgegradle": "6.x",
+      "gradle": "8.x",
+      "jdk": "21"
+    },
+    {
+      "loader": "forge",
+      "minecraft": "1.20.1",
+      "forge_versions": "47.x",
+      "forgegradle": "6.x",
+      "gradle": "8.x",
+      "jdk": "17"
+    },
+    {
+      "loader": "forge",
+      "minecraft": "1.19.x-1.20.x",
+      "forge_versions": "41.x-46.x",
+      "forgegradle": "5.x/6.x",
+      "gradle": "7.6-8.x",
+      "jdk": "17"
+    },
+    {
+      "loader": "forge",
+      "minecraft": "1.16.5-1.18.2",
+      "forge_versions": "36.x-40.x",
+      "forgegradle": "5.x",
+      "gradle": "7.x",
+      "jdk": "8/16/17"
+    },
+    {
+      "loader": "forge",
+      "minecraft": "1.12.2",
+      "forge_versions": "14.23.5.286x",
+      "forgegradle": "2.3",
+      "gradle": "4.10.3",
+      "jdk": "8"
+    },
+    {
+      "loader": "quilt",
+      "minecraft": "1.20.1",
+      "quilt_loader": "0.30.1",
+      "quilt_loom": "1.9-SNAPSHOT",
+      "gradle": "8.11-8.12",
+      "jdk": "21",
+      "qfapi": "7.7.0+0.92.2-1.20.1"
+    },
+    {
+      "loader": "quilt",
+      "minecraft": "26.3",
+      "quilt_loader": "0.31.0-beta.x",
+      "quilt_loom": "1.19.x",
+      "gradle": "9.8.0",
+      "jdk": "25",
+      "note": "QSL для 1.21+ пока в альфе"
+    }
+  ],
+  "live_versions": {
+    "fabric_loader": "0.20.1",
+    "yarn_1_21_1": "1.21.1+build.3",
+    "fabric_api_1_21_1": "0.116.17+1.21.1",
+    "fabric_api_latest_stable": "0.164.0+26.3",
+    "neoforge_21_1": "21.1.264",
+    "forge_1_20_1": "1.20.1-47.4.28",
+    "forge_1_21_1": "1.21.1-52.1.20",
+    "forge_1_12_2": "1.12.2-14.23.5.2864",
+    "quilt_loader_stable": ["0.30.1", "0.30.0", "0.29.2"],
+    "qfapi_1_20_1": "7.7.0+0.92.2-1.20.1",
+    "minecraft_latest_release": "26.3"
+  },
+  "notes": "Строки в verified добавлены только после успешной сборки .jar. toolchain_matrix — официальное соответствие версий. live_versions получены из meta/maven API на дату 2026-10-20."
 }
