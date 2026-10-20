@@ -40,8 +40,22 @@
 - **Forge:** `26.3-66.0.13` (для Minecraft `26.3`), `26.2-65.1.5`,
   `26.1.2-64.1.5`
 - **NeoForge:** `26.3.0.95` (для Minecraft `26.3`), `26.1.2.122`
-- **Fabric:** loader `0.20.1`, Fabric API `0.164.1+26.4`
-- **Paper:** `26.3` (сборка для `26.3`, есть и `26.3-rc-3`)
+- **Paper:** `26.3` (сборки 20x, канал STABLE)
+- **Fabric:** для `26.x` **пока не поддерживает** — маппинги Yarn
+  останавливаются на `1.21.11`. Для Fabric берите последнюю версию с
+  маппингами (`https://meta.fabricmc.net/v2/versions/yarn`).
+
+Проверенные сборки (реально собраны, не «по слухам»):
+
+- **NeoForge 26.3** — JDK 25, Gradle 9.2.1, ModDevGradle 2.0.148,
+  `neo_version=26.3.0.95`. Шаблон: `NeoForgeMDKs/MDK-26.3-ModDevGradle`.
+- **Fabric** (MC 1.21) — JDK 25, Loom 1.18.4, Gradle 9.7.1, loader 0.19.5.
+  Важно: Loom 1.18.x **требует JDK 25**.
+- **Forge 1.20.1** — JDK 17, Gradle 8.8, Forge 47.4.28.
+- **Paper 26.3** — `paper-api 26.3.build.207-stable`, Maven 3.9.9, JDK 25.
+
+Разные ядра догоняют Minecraft с разной задержкой: проверяйте поддержку
+версии **для каждого ядра отдельно**, а не «в целом для Minecraft».
 
 ## Версии загрузчиков для 1.21.x (для старых сборок)
 
@@ -76,13 +90,17 @@ minecraft_version=26.3
 neo_version=26.3.0.95
 ```
 
-Gradle для Fabric (`gradle.properties`), Minecraft `26.3`:
+Gradle для Fabric (`gradle.properties`), MC `1.21.11` (последняя с маппингами;
+для `26.x` Fabric пока не поддерживается):
 
 ```properties
-minecraft_version=26.3
+minecraft_version=1.21.11
 loader_version=0.20.1
-fabric_version=0.164.1+26.4
+fabric_api_version=<последняя для 1.21.11>
+loom_version=1.19-SNAPSHOT
 ```
+
+Требования: Loom 1.18+ требует **JDK 25**, Gradle 9.x.
 
 Bedrock — версия аддона берётся из манифеста и указывается в
 `min_engine_version` (это версия формата, а не игры):
