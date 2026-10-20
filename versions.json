@@ -21,6 +21,17 @@
       "neoforge": "21.1.264",
       "verified_jar": "examplenm-1.0.0.jar",
       "verified_at": "2026-10-19"
+    },
+    {
+      "minecraft": "26.3",
+      "loader": "neoforge",
+      "gradle": "9.2.1",
+      "jdk": "25",
+      "moddevgradle": "2.0.148",
+      "neoforge": "26.3.0.95",
+      "mdk": "https://github.com/NeoForgeMDKs/MDK-26.3-ModDevGradle",
+      "verified_jar": "mysticmod-1.0.0.jar",
+      "verified_at": "2026-10-20"
     }
   ],
   "toolchain_matrix": [
@@ -98,13 +109,21 @@
     "forge_1_20_1": "1.20.1-47.4.28",
     "forge_1_21_1": "1.21.1-52.1.20",
     "forge_1_12_2": "1.12.2-14.23.5.2864",
-    "quilt_loader_stable": ["0.30.1", "0.30.0", "0.29.2"],
+    "quilt_loader_stable": [
+      "0.30.1",
+      "0.30.0",
+      "0.29.2"
+    ],
     "qfapi_1_20_1": "7.7.0+0.92.2-1.20.1"
   },
   "bedrock_versions": {
     "latest_game": "1.26.50.4",
     "latest_game_date": "2026-09-15",
-    "min_engine_version_example": [1, 26, 50],
+    "min_engine_version_example": [
+      1,
+      26,
+      50
+    ],
     "script_modules_stable": {
       "@minecraft/server": "2.10.0",
       "@minecraft/server-ui": "2.2.0"
