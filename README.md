@@ -72,13 +72,19 @@ MinecraftForge, NeoForged, FabricMC, PaperMC).
   Gradle 9.7.1). Важно: Loom 1.18.x требует **JDK 25**, не 21.
 - **Плагин, Paper 26.3** — собран `exampleplugin-1.0.0.jar`
   (`paper-api 26.3.build.207-stable`, Maven 3.9.9, JDK 25).
+- **Мод, Quilt 1.20.6** — собран `example_mod-1.0.0+1.20.6.jar` (Quilt Loom
+  1.7.4, Gradle 8.9, JDK 21). Важно: Quilt требует полного набора библиотек
+  (quilt-mappings + loader + QSL + quilted-fabric-api), иначе `remapJar`
+  выдаёт **пустой** jar без классов.
 - **Аддон Bedrock** — `mystic_amulet.mcaddon` (предмет) и
   `mystic_creatures.mcaddon` (сущность + блок + скрипт): валидны по
   чек-листу `docs/bedrock/validation.md`.
 
-Важно про поддержку версий: **Fabric пока не поддерживает MC 26.x** — маппинги
-Yarn останавливаются на `1.21.11`. NeoForge/Forge и Paper идут следом за
-Minecraft с разной задержкой — проверяйте каждое ядро отдельно.
+Важно про поддержку версий: **Fabric и Quilt пока не поддерживают MC 26.x**
+(маппинги Yarn и Quilt-mappings останавливаются на `1.21.11`). NeoForge,
+Forge и Paper идут следом за Minecraft с разной задержкой — проверяйте каждое
+ядро отдельно. **Всегда проверяйте, что итоговый jar не пустой** (BUILD
+SUCCESSFUL + пустой jar = провал).
 
 ## Официальная документация
 
