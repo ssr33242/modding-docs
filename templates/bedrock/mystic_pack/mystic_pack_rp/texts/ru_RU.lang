@@ -1,0 +1,6 @@
+item.mystic.amulet.name=Магический амулет
+tile.mystic.mana_block.name=Мана-блок
+entity.mystic.guardian_pet.name=Существо-хранитель
+item.spawn_egg.entity.mystic.guardian_pet.name=Яйцо существа-хранителя
+pack.name=Mystic Pack
+pack.description=Предмет, блок и существо-хранитель
