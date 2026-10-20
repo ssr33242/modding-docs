@@ -193,12 +193,46 @@
 
 ## Как собрать `.mcaddon`
 
-- `.mcaddon` — это ZIP-архив, в котором лежат папки BP и/или RP.
-- Внутри архива должны быть **папки паков** (например, `my_behavior_pack/`
-  и `my_resource_pack/`), а внутри каждой — `manifest.json`.
+`.mcaddon` — это ZIP-архив. Официальный формат задан кодом Microsoft
+(`mcaddonTask`, `Mojang/minecraft-scripting-libraries` →
+`tools/core-build-tasks/src/tasks/zip.ts`):
+
+```
+mystic_pack.mcaddon            (zip)
+├── mystic_pack_bp.mcpack       (zip, manifest.json В КОРНЕ)
+└── mystic_pack_rp.mcpack       (zip, manifest.json В КОРНЕ)
+```
+
+То есть `.mcaddon` содержит **два вложенных `.mcpack`-архива**, а не папки.
+
+Альтернативный «плоский» вариант (так устроены официальные образцы
+`Mojang/bedrock-samples`, где в корне репозитория лежат `behavior_pack/`
+и `resource_pack/`):
+
+```
+mystic_pack_flat.mcaddon       (zip)
+├── mystic_pack_bp/manifest.json
+└── mystic_pack_rp/manifest.json
+```
+
+Что важно в обоих случаях:
+
+- `manifest.json` должен лежать **в корне** каждого пака (вложенный `.mcpack`
+  или папка верхнего уровня) — не глубже.
+- `version` и `min_engine_version` — массивы `[1, 0, 0]`, не строки.
+- UUID пака и каждого модуля уникальны и не пересекаются между паками.
 - Порядок загрузки и подключения задаёт пользователь в настройках мира.
-- Переименовать `*.zip` в `*.mcaddon` недостаточно: важно, чтобы структура
-  внутри была правильной (манифесты на верхнем уровне папок паков).
+- Переименовать `*.zip` в `*.mcaddon` недостаточно: важна внутренняя структура.
+
+Официальная упаковка одной командой (из папки проекта с `package.json`):
+
+```
+npx just-scripts mcaddon
+```
+
+> Источники: `Mojang/minecraft-scripting-libraries` (задача `mcaddonTask`),
+> `Mojang/bedrock-samples`, `MicrosoftDocs/minecraft-creator` →
+> `AddonDevelopmentWorkflow.md`.
 
 ## Типичные ошибки
 
@@ -226,6 +260,11 @@
 - `behavior_pack/entities/`, `blocks/`, `items/`, `recipes/`,
   `loot_tables/`, `spawn_rules/`, `trading/`.
 - `resource_pack/` — текстуры, модели, звуки, локализация.
+- Код официальной упаковки в `.mcaddon`:
+  `Mojang/minecraft-scripting-libraries` → `tools/core-build-tasks/src/tasks/zip.ts`
+  (задача `mcaddonTask`).
+- Готовый рабочий пример в этом репозитории:
+  `templates/bedrock/mystic_pack/` + `releases/mystic_pack.mcaddon`.
 
 Разбирать реальные примеры из этого репозитория полезнее, чем писать контент
 с нуля: структура и значения полей там заведомо корректные для текущей
