@@ -116,7 +116,10 @@
 - **version и min_engine_version — массивы** `[1, 0, 0]`, не строки.
 - **UUID должны быть разными**: header.uuid и каждый modules[].uuid.
 - **Упаковка**: `.mcaddon` (оба пакета) или `.mcpack` (один пакет).
-- **Структура .mcaddon**: в корне zip папки `behavior_packs/` и `resource_packs/`.
+- **Структура .mcaddon**: официально — zip с двумя вложенными `.mcpack`
+  (`_bp.mcpack` + `_rp.mcpack`, у каждого `manifest.json` в корне).
+  Плоский вариант (как в `bedrock-samples`): папки `behavior_pack/` и
+  `resource_pack/` прямо в корне zip.
 - **Скрипты** требуют включённых **Beta APIs** в мире (только если версия
   модуля содержит `beta`).
 - **Версия движка** (`min_engine_version`) и версия скриптового API — разные
