@@ -1,0 +1,7 @@
+[
+  "pack.name=Example Addon",
+  "pack.description=Example addon for Bedrock Edition",
+  "item.example:ruby=Ruby",
+  "tile.example:ruby_block.name=Ruby Block",
+  "entity.example:guardian_pet.name=Guardian Pet"
+]
