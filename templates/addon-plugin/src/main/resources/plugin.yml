@@ -1,0 +1,19 @@
+name: ExampleAddon
+version: '${project.version}'
+main: com.example.exampleaddon.ExampleAddon
+api-version: '1.21'
+author: Example
+description: Пример аддона, расширяющего другой плагин
+depend: [LuckPerms]
+softdepend: [Vault]
+
+commands:
+  exampleaddon:
+    description: Команда аддона
+    usage: /exampleaddon
+    permission: exampleaddon.use
+
+permissions:
+  exampleaddon.use:
+    description: Разрешает использовать команду аддона
+    default: true
