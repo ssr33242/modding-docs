@@ -3,9 +3,14 @@
 Этот файл — точка входа для быстрого понимания, **где что искать**. Пользуйся им
 перед тем, как читать длинные гайды.
 
-> **Свежие версии (октябрь 2026):** Minecraft Java — релиз `26.3` (нумерация
-> сменилась с `1.21.x` на `26.x`: `26.1`, `26.2`, `26.3`); Bedrock —
-> `1.26.50.4`. Подробности — `docs/java/versions.md`.
+> **Свежие версии (21 октября 2026):** Minecraft Java — релиз `26.3`, снапшот
+> `26.4-snapshot-5` (нумерация сменилась с `1.21.x` на `26.x`: `26.1`, `26.2`,
+> `26.3`); Bedrock — `1.26.50.4`. Подробности — `docs/java/versions.md`.
+>
+> **Поддержка 26.x:** Fabric ✅ (`0.163.0+26.3`), NeoForge ✅ (`26.3.0.95`),
+> Forge ✅ (`26.3-66.0.13`), Paper ✅ (`26.3`), Quilt ❌ (нет маппингов).
+> **С 26.1 Minecraft не обфусцируется**, Yarn больше не выпускается → Fabric-моды
+> под 26.x собираются на официальных маппингах Mojang. Гайд: `docs/java/migration-26x.md`.
 
 ## Сначала определи платформу
 
@@ -16,10 +21,13 @@
 
 ## Как выбрать Java-ядро
 
-- **Максимальная совместимость с новыми версиями и снапшотами** → Fabric.
+- **Максимальная совместимость с новыми версиями и снапшотами** → Fabric
+  (на 26.x — официальные маппинги Mojang).
 - **Современный Forge-подобный API (1.20.2+)** → NeoForge.
 - **Мод для старой популярной сборки (1.12.2, 1.20.1)** → Forge.
-- **Fabric, но с собственными стандартами, либо запуск Fabric-модов** → Quilt.
+- **Fabric, но с собственными стандартами, либо запуск Fabric-модов** → Quilt
+  (но не под 26.x — нет маппингов).
+- **Один код для Fabric и NeoForge сразу** → Architectury.
 
 ## Как выбрать между модом и плагином
 
@@ -32,7 +40,11 @@
 - Машиночитаемые версии → `versions.json`
 - **Тематические справочники → `docs/`**
   - `docs/java/versions.md` — версии Minecraft и загрузчиков, конфиги Gradle
-  - `docs/java/unsupported.md` — **что не собирается**: Fabric/Quilt на 26.x, пустой jar, обходы
+  - `docs/java/loaders.md` — обзор загрузчиков: кто есть кто, что поддерживает
+  - `docs/java/toolchain.md` — Gradle, JDK, плагины сборки, типовые грабли
+  - `docs/java/mappings.md` — Mojang mappings vs Yarn vs Parchment
+  - `docs/java/migration-26x.md` — **перенос мода с 1.21.x на 26.x** (Loom `migrateMappings` / Ravel)
+  - `docs/java/unsupported.md` — **что не собирается**: Quilt на 26.x, пустой jar, обходы
   - `docs/java/commands.md` — свои команды через `/` (Brigadier)
   - `docs/java/events.md` — события: шины, подписка, приоритеты
   - `docs/java/menus-gui.md` — экраны (Screen) и меню (AbstractContainerMenu)
@@ -166,5 +178,11 @@
 - Подписка на абстрактное событие (`BlockEvent`, `PlayerEvent`) → краш игры.
 - `BUILD SUCCESSFUL`, но jar пустой → не задан ни один `modImplementation`,
   Loom ремапит 0 модов. Проверяй наличие `.class` внутри jar.
-- Fabric/Quilt не собираются на 26.x → нет маппингов Yarn/Quilt-mappings
-  (до 1.21.11). Подробно — `docs/java/unsupported.md`.
+- Quilt не собирается на 26.x → нет маппингов Quilt-mappings (последние — под
+  1.21.11). Подробно — `docs/java/unsupported.md`.
+- Мод из 1.21.x не собирается на 26.x → сменились маппинги (Yarn → Mojang).
+  Прогнать `./gradlew migrateMappings` или Ravel, Mixin-цели править вручную —
+  `docs/java/migration-26x.md`.
+- `mappings ... not found` → в проекте осталась строка Yarn для версии без Yarn;
+  удалить её (Loom сам возьмёт официальные маппинги).
+- Fabric-мод на 26.x падает на старте → не тот JDK: для 26.x нужен **JDK 25**.

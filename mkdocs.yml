@@ -1,0 +1,93 @@
+site_name: Minecraft Modding Reference
+site_description: >-
+  Рабочий справочник по моддингу Minecraft: матрица совместимости, проверенные
+  шаблоны и пошаговые инструкции для Fabric, NeoForge, Forge, Quilt, Paper и Bedrock.
+site_author: satda
+repo_url: https://github.com/ssr33242/modding-docs
+repo_name: ssr33242/modding-docs
+edit_uri: edit/main/
+copyright: MIT
+
+# Содержимое сайта готовит scripts/build_site.py: он складывает
+# docs/, guides/ и knowledge/ в .site-src/ — mkdocs требует, чтобы
+# docs_dir был подкаталогом конфига.
+docs_dir: .site-src
+site_dir: site
+
+theme:
+  name: material
+  language: ru
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/weather-night
+        name: Тёмная тема
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/weather-sunny
+        name: Светлая тема
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+
+nav:
+  - Главная: index.md
+  - Java Edition:
+      - Версии и загрузчики: docs/java/versions.md
+      - Обзор загрузчиков: docs/java/loaders.md
+      - Toolchain (Gradle, JDK): docs/java/toolchain.md
+      - Маппинги: docs/java/mappings.md
+      - Миграция на 26.x: docs/java/migration-26x.md
+      - Что не собирается: docs/java/unsupported.md
+      - Команды: docs/java/commands.md
+      - События: docs/java/events.md
+      - Экраны и меню: docs/java/menus-gui.md
+      - Реестры и регистрация: docs/java/registries.md
+  - Bedrock Edition:
+      - Структура аддона: docs/bedrock/addon-structure.md
+      - Команды: docs/bedrock/commands.md
+      - Меню и формы: docs/bedrock/forms-menus.md
+      - JSON UI: docs/bedrock/json-ui.md
+      - Скрипты: docs/bedrock/scripting.md
+      - Проверка аддона: docs/bedrock/validation.md
+  - Гайды:
+      - От нуля до jar (Fabric/NeoForge): guides/from-zero-to-jar.md
+      - От нуля до jar (Forge): guides/forge-from-zero-to-jar.md
+      - От нуля до jar (Quilt): guides/quilt-from-zero-to-jar.md
+      - Плагины с нуля: guides/plugins-from-zero-to-jar.md
+      - Аддоны: guides/addons-overview.md
+      - Аддон Bedrock с нуля: guides/bedrock-from-zero-to-addon.md
+      - Сборка аддона: guides/bedrock-build.md
+      - Площадки Bedrock: guides/bedrock-repos.md
+      - Серверы Bedrock: guides/bedrock-servers.md
+      - Инструменты: guides/tools.md
+      - Toolchain: guides/toolchain-setup.md
+      - Каталог репозиториев: guides/repos-catalog.md
+      - Полезные ссылки: guides/resources.md
+  - Программирование:
+      - Репозитории Mojang: docs/programming/repos.md
+  - Карта знаний: knowledge/knowledge-map.md
+  - Совместимость: COMPATIBILITY.md

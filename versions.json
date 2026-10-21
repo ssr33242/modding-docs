@@ -1,5 +1,88 @@
 {
+  "_comment": "Машинно-читаемый реестр версий. Обновляется скриптом scripts/refresh_versions.py (CI: .github/workflows/refresh-versions.yml). Проверено 2026-10-21.",
+  "checked_at": "2026-10-21",
+  "minecraft": {
+    "latest_release": "26.3",
+    "latest_snapshot": "26.4-snapshot-5",
+    "recent_releases": [
+      "26.3",
+      "26.2",
+      "26.1.2",
+      "26.1.1",
+      "26.1",
+      "1.21.11",
+      "1.21.10",
+      "1.21.9"
+    ],
+    "source": "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"
+  },
   "verified": [
+    {
+      "minecraft": "26.3",
+      "loader": "fabric",
+      "gradle": "9.x",
+      "jdk": "25",
+      "loom": "1.18-SNAPSHOT (официальный шаблон) / 1.19.2 latest",
+      "loader_version": "0.19.5",
+      "fabric_api": "0.163.0+26.3",
+      "mappings": "mojang (официальные) — Yarn под 26.x не выпускается",
+      "template": "https://github.com/FabricMC/fabric-example-mod/tree/26.3",
+      "note": "официальный шаблон Fabric под 26.3; Java release = 25",
+      "verified_at": "2026-10-21"
+    },
+    {
+      "minecraft": "26.3",
+      "loader": "neoforge",
+      "gradle": "9.2.1",
+      "jdk": "25",
+      "moddevgradle": "2.0.148",
+      "neoforge": "26.3.0.95",
+      "mdk": "https://github.com/NeoForgeMDKs/MDK-26.3-ModDevGradle",
+      "mappings": "mojang (идут в комплекте с игрой)",
+      "verified_jar": "mysticmod-1.0.0.jar",
+      "verified_at": "2026-10-20"
+    },
+    {
+      "minecraft": "26.3",
+      "loader": "forge",
+      "gradle": "8.x",
+      "jdk": "21",
+      "forgegradle": "6.0.54",
+      "forge": "26.3-66.0.13",
+      "mappings": "mojang (SRG → mojmap в ForgeGradle)",
+      "docs_branch": "FG/6.x",
+      "note": "Forge для 26.x — ветка FG/6.x; ForgeGradle 6.x не работает на Gradle 9",
+      "verified_at": "2026-10-21"
+    },
+    {
+      "minecraft": "26.3",
+      "loader": "quilt",
+      "gradle": "8.10+",
+      "jdk": "21",
+      "quilt_loader": "0.30.1 (0.31.0-beta.4)",
+      "mappings": "mojang",
+      "note": "meta.quiltmc.org отдаёт 26.3; маппинги Quilt под 26.x НЕ выпущены — см. docs/java/unsupported.md",
+      "verified_at": "2026-10-21"
+    },
+    {
+      "minecraft": "26.3",
+      "loader": "paper",
+      "plugin": "paper-api 26.3.build.x",
+      "maven": "3.9.9",
+      "jdk": "25",
+      "build_tool": "maven",
+      "api": "https://fill.papermc.io/v3/projects/paper/versions/26.3/builds",
+      "repo": "https://repo.papermc.io/repository/maven-public/",
+      "verified_jar": "exampleplugin-1.0.0.jar",
+      "verified_at": "2026-10-20"
+    },
+    {
+      "minecraft": "26.3",
+      "loader": "architectury",
+      "artifact": "architectury-api 22.0.5+fabric / 22.0.5+neoforge",
+      "note": "мост между Fabric и NeoForge, версии идут парами под одну версию MC",
+      "verified_at": "2026-10-21"
+    },
     {
       "minecraft": "1.21.1",
       "loader": "fabric",
@@ -23,17 +106,6 @@
       "verified_at": "2026-10-19"
     },
     {
-      "minecraft": "26.3",
-      "loader": "neoforge",
-      "gradle": "9.2.1",
-      "jdk": "25",
-      "moddevgradle": "2.0.148",
-      "neoforge": "26.3.0.95",
-      "mdk": "https://github.com/NeoForgeMDKs/MDK-26.3-ModDevGradle",
-      "verified_jar": "mysticmod-1.0.0.jar",
-      "verified_at": "2026-10-20"
-    },
-    {
       "minecraft": "1.21",
       "loader": "fabric",
       "gradle": "9.7.1",
@@ -41,18 +113,8 @@
       "loom": "1.18.4",
       "loader_version": "0.19.5",
       "fabric_api": "0.102.0+1.21",
-      "note": "официальный fabric-example-mod; Loom 1.18.4 требует JDK 25 (не 21!)",
+      "note": "официальный fabric-example-mod, ветка 1.21; Loom 1.18.x требует JDK 25",
       "verified_jar": "modid-1.0.0.jar",
-      "verified_at": "2026-10-20"
-    },
-    {
-      "minecraft": "26.3",
-      "loader": "paper",
-      "plugin": "paper-api 26.3.build.207-stable",
-      "maven": "3.9.9",
-      "jdk": "25",
-      "build_tool": "maven",
-      "verified_jar": "exampleplugin-1.0.0.jar",
       "verified_at": "2026-10-20"
     },
     {
@@ -82,9 +144,49 @@
   ],
   "toolchain_matrix": [
     {
+      "loader": "fabric",
+      "minecraft": "26.x",
+      "loom": "1.18-SNAPSHOT / 1.19.2",
+      "gradle": "9.x",
+      "jdk": "25",
+      "mappings": "mojang"
+    },
+    {
+      "loader": "fabric",
+      "minecraft": "1.21.x",
+      "loom": "1.18.x / 1.19.x",
+      "gradle": ">= 9.8.0",
+      "jdk": ">= 25",
+      "mappings": "yarn или mojang"
+    },
+    {
+      "loader": "neoforge",
+      "minecraft": "26.x",
+      "moddevgradle": "2.0.148",
+      "gradle": "8.8+ / 9.x",
+      "jdk": "21 / 25",
+      "mappings": "mojang"
+    },
+    {
+      "loader": "neoforge",
+      "minecraft": "1.21.x",
+      "moddevgradle": "2.x",
+      "gradle": "8.8+ / 9.x",
+      "jdk": "21",
+      "mappings": "mojang"
+    },
+    {
+      "loader": "forge",
+      "minecraft": "26.x",
+      "forgegradle": "6.0.54",
+      "gradle": "8.x",
+      "jdk": "21",
+      "mappings": "mojang"
+    },
+    {
       "loader": "forge",
       "minecraft": "1.21.x",
-      "forge_versions": "52.x-61.x",
+      "forge": "52.x-61.x",
       "forgegradle": "6.x",
       "gradle": "8.x",
       "jdk": "21"
@@ -92,7 +194,7 @@
     {
       "loader": "forge",
       "minecraft": "1.20.1",
-      "forge_versions": "47.x",
+      "forge": "47.x",
       "forgegradle": "6.x",
       "gradle": "8.x",
       "jdk": "17"
@@ -100,7 +202,7 @@
     {
       "loader": "forge",
       "minecraft": "1.19.x-1.20.x",
-      "forge_versions": "41.x-46.x",
+      "forge": "41.x-46.x",
       "forgegradle": "5.x/6.x",
       "gradle": "7.6-8.x",
       "jdk": "17"
@@ -108,7 +210,7 @@
     {
       "loader": "forge",
       "minecraft": "1.16.5-1.18.2",
-      "forge_versions": "36.x-40.x",
+      "forge": "36.x-40.x",
       "forgegradle": "5.x",
       "gradle": "7.x",
       "jdk": "8/16/17"
@@ -116,98 +218,58 @@
     {
       "loader": "forge",
       "minecraft": "1.12.2",
-      "forge_versions": "14.23.5.286x",
+      "forge": "14.23.5.2864",
       "forgegradle": "2.3",
       "gradle": "4.10.3",
       "jdk": "8"
     },
     {
       "loader": "quilt",
-      "minecraft": "1.20.1",
-      "quilt_loader": "0.30.1",
-      "quilt_loom": "1.9-SNAPSHOT",
-      "gradle": "8.11-8.12",
-      "jdk": "21",
-      "qfapi": "7.7.0+0.92.2-1.20.1"
-    },
-    {
-      "loader": "quilt",
-      "minecraft": "26.3",
-      "quilt_loader": "0.31.0-beta.x",
-      "quilt_loom": "1.19.x",
-      "gradle": "9.8.0",
-      "jdk": "25",
-      "note": "QSL для 1.21+ пока в альфе"
+      "minecraft": "1.20.6",
+      "quilt_loom": "1.7.4",
+      "gradle": "8.9",
+      "jdk": "21"
     }
   ],
   "live_versions": {
-    "minecraft_latest_release": "26.3",
-    "minecraft_latest_snapshot": "26.4-snapshot-5",
-    "forge_26_3": "26.3-66.0.13",
-    "neoforge_26_3": "26.3.0.95",
-    "paper_26_3": "26.3",
+    "checked_at": "2026-10-21",
     "fabric_loader": "0.20.1",
-    "fabric_api_latest_stable": "0.164.1+26.4",
-    "yarn_1_21_1": "1.21.1+build.3",
-    "fabric_api_1_21_1": "0.116.17+1.21.1",
-    "neoforge_21_1": "21.1.264",
-    "neoforge_21_4": "21.4.77-beta",
-    "forge_1_20_1": "1.20.1-47.4.28",
-    "forge_1_21_1": "1.21.1-52.1.20",
-    "forge_1_12_2": "1.12.2-14.23.5.2864",
-    "quilt_loader_stable": [
-      "0.30.1",
-      "0.30.0",
-      "0.29.2"
-    ],
-    "qfapi_1_20_1": "7.7.0+0.92.2-1.20.1"
-  },
-  "bedrock_versions": {
-    "latest_game": "1.26.50.4",
-    "latest_game_date": "2026-09-15",
-    "min_engine_version_example": [
-      1,
-      26,
-      50
-    ],
-    "script_modules_stable": {
-      "@minecraft/server": "2.10.0",
-      "@minecraft/server-ui": "2.2.0"
-    },
-    "script_modules_beta": {
-      "@minecraft/server": "2.13.0-beta",
-      "@minecraft/server-ui": "2.5.0-beta",
-      "@minecraft/server-admin": "1.0.0-beta",
-      "@minecraft/server-net": "1.0.0-beta",
-      "@minecraft/server-gametest": "1.0.0-beta"
-    },
-    "addons_verified": [
-      "mystic_amulet.mcaddon (предмет+скрипт)",
-      "mystic_creatures.mcaddon (сущность+блок+скрипт)"
-    ]
+    "fabric_loader_stable": "0.19.5",
+    "fabric_api_latest": "0.164.1+26.4",
+    "fabric_api_for_26_3": "0.164.0+26.3",
+    "fabric_loom": "1.19.2",
+    "yarn_latest": "1.21.11+build.6",
+    "neoforge": "26.3.0.95",
+    "moddevgradle": "2.0.148",
+    "forge": "26.3-66.0.13",
+    "forgegradle": "6.0.54",
+    "quilt_loader": "0.30.1",
+    "quilt_loader_beta": "0.31.0-beta.4",
+    "architectury_api": "22.0.5",
+    "paper": "26.3",
+    "modmenu": "21.0.0 (26.3) / 22.0.0-alpha.2 (26.4-snapshot-3)",
+    "minecraft_release": "26.3",
+    "minecraft_snapshot": "26.4-snapshot-5"
   },
   "sources": {
-    "minecraft_manifest": "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json",
-    "forge_maven": "https://maven.minecraftforge.net/net/minecraftforge/forge/maven-metadata.xml",
-    "neoforge_maven": "https://maven.neoforged.net/releases/net/neoforged/neoforge/maven-metadata.xml",
-    "fabric_meta": "https://meta.fabricmc.net/v2/versions/loader",
-    "paper_api": "https://fill.papermc.io/v3/projects/paper",
-    "bedrock_samples": "https://github.com/Mojang/bedrock-samples",
-    "bedrock_schema": "https://github.com/MicrosoftDocs/minecraft-creator",
-    "npm_server": "https://registry.npmjs.org/@minecraft/server",
-    "npm_server_ui": "https://registry.npmjs.org/@minecraft/server-ui"
+    "minecraft": "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json",
+    "fabric_loader": "https://meta.fabricmc.net/v2/versions/loader",
+    "fabric_game": "https://meta.fabricmc.net/v2/versions/game",
+    "yarn": "https://meta.fabricmc.net/v2/versions/yarn",
+    "fabric_api": "https://api.modrinth.com/v2/project/fabric-api/version",
+    "fabric_loom": "https://maven.fabricmc.net/net/fabricmc/fabric-loom/maven-metadata.xml",
+    "neoforge": "https://maven.neoforged.net/releases/net/neoforged/neoforge/maven-metadata.xml",
+    "moddevgradle": "https://maven.neoforged.net/releases/net/neoforged/moddev-gradle/maven-metadata.xml",
+    "forge": "https://maven.minecraftforge.net/net/minecraftforge/forge/maven-metadata.xml",
+    "forgegradle": "https://maven.minecraftforge.net/net/minecraftforge/gradle/ForgeGradle/maven-metadata.xml",
+    "quilt_loader": "https://meta.quiltmc.org/v3/versions/loader",
+    "quilt_game": "https://meta.quiltmc.org/v3/versions/game",
+    "paper": "https://fill.papermc.io/v3/projects/paper",
+    "architectury": "https://api.modrinth.com/v2/project/architectury-api/version"
   },
-  "notes": "Строки в verified добавлены только после успешной сборки .jar. toolchain_matrix — официальное соответствие версий. live_versions получены из meta/maven/npm API на дату 2026-10-20. ВАЖНО: Minecraft Java перешёл на нумерацию 26.x (после 1.21.11). Пакетная прошивка Paper v2 закрыта, актуальна fill.papermc.io/v3.",
-  "version_notes": {
-    "fabric_latest_game_version": "1.21.11",
-    "fabric_supports_26_3": false,
-    "fabric_note": "Yarn останавливается на 1.21.11 — Fabric ещё не поддерживает 26.x",
-    "forge_1_20_1_latest": "47.4.28",
-    "paper_26_3_latest_build": 207,
-    "jdk_note": "Fabric Loom 1.18.x и NeoForge 26.x требуют JDK 25; Forge 1.20.1 — JDK 17",
-    "quilt_latest_supported": "1.20.6 (полный набор: mappings+loader+QSL+quilted-fabric-api)",
-    "quilt_mappings_latest": "1.21.11",
-    "quilt_supports_26_3": false,
-    "quilt_note": "маппинги Quilt до 1.21.11, но quilted-fabric-api/QSL полны только на 1.20.6 — на этой версии мод реально собирается"
+  "docs_mirrors": {
+    "fabric": "https://github.com/ssr33242/fabric-docs",
+    "neoforge": "https://github.com/ssr33242/neoforge-docs",
+    "forge": "https://github.com/ssr33242/forge-docs"
   }
 }

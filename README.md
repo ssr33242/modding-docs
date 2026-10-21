@@ -7,6 +7,22 @@
 Справочные материалы опираются на **официальные источники** (Mojang, Microsoft,
 MinecraftForge, NeoForged, FabricMC, PaperMC).
 
+> **Состояние на 21 октября 2026**
+>
+> | | |
+> |---|---|
+> | Minecraft (релиз / снапшот) | **26.3** / 26.4-snapshot-5 |
+> | Fabric | ✅ поддерживает 26.x (API `0.163.0+26.3`, Loader `0.19.5`, Loom `1.18-SNAPSHOT`) |
+> | NeoForge | ✅ `26.3.0.95` (ModDevGradle `2.0.148`) |
+> | Forge | ✅ `26.3-66.0.13` (ForgeGradle `6.0.54`, **только Gradle 8.x**) |
+> | Quilt | ❌ нет маппингов под 26.x (последняя рабочая — 1.20.6) |
+> | Paper | ✅ `26.3` |
+> | JDK для 26.x | **25** |
+>
+> Главное изменение ветки 26.x: Minecraft **больше не обфусцируется**, Yarn
+> больше не выпускается → Fabric-моды под 26.x собираются на **официальных
+> маппингах Mojang**. Гайд по переносу — [`docs/java/migration-26x.md`](docs/java/migration-26x.md).
+
 ## Что покрывает
 
 - **Java-моды**: Fabric, NeoForge, Forge, Quilt
@@ -18,11 +34,16 @@ MinecraftForge, NeoForged, FabricMC, PaperMC).
 
 ## Структура
 
-- `COMPATIBILITY.md` — матрица «версия Minecraft ↔ ядро ↔ Gradle ↔ JDK»
-- `knowledge/knowledge-map.md` — **начни отсюда**: что где лежит и как выбрать
+- [`COMPATIBILITY.md`](COMPATIBILITY.md) — матрица «версия Minecraft ↔ ядро ↔ Gradle ↔ JDK ↔ маппинги»
+- [`knowledge/knowledge-map.md`](knowledge/knowledge-map.md) — **начни отсюда**: что где лежит и как выбрать
+- [`versions.json`](versions.json) — машиночитаемый реестр версий (обновляется автоматически)
 - `docs/` — справочники по конкретным темам (официальные источники):
   - `docs/java/versions.md` — актуальные версии Minecraft и загрузчиков
-  - `docs/java/unsupported.md` — **что не собирается и почему** (Fabric/Quilt на 26.x, пустой jar, обходы)
+  - `docs/java/loaders.md` — обзор загрузчиков: кто есть кто и что поддерживает
+  - `docs/java/toolchain.md` — Gradle, JDK, плагины сборки и грабли
+  - `docs/java/mappings.md` — Mojang mappings vs Yarn vs Parchment
+  - `docs/java/migration-26x.md` — **перенос мода с 1.21.x на 26.x**
+  - `docs/java/unsupported.md` — **что не собирается и почему** (Quilt на 26.x, пустой jar, обходы)
   - `docs/java/commands.md` — команды через `/` (Brigadier, регистрация)
   - `docs/java/events.md` — события (Forge/NeoForge)
   - `docs/java/menus-gui.md` — экраны и меню (Screen, AbstractContainerScreen)
@@ -43,7 +64,7 @@ MinecraftForge, NeoForged, FabricMC, PaperMC).
 - `guides/repos-catalog.md` — **большой каталог репозиториев** по всем темам
 - `guides/tools.md` — инструменты моддинга: сборка, модели, датапаки, отладка
 - `guides/resources.md` — справочник ссылок: документация, API версий, комьюнити
-- `versions.json` — зафиксированные рабочие комбинации версий + живые версии
+- `releases/` — готовые аддоны Bedrock (`.mcaddon`) для проверки
 
 ## Быстрый старт
 
@@ -60,16 +81,21 @@ MinecraftForge, NeoForged, FabricMC, PaperMC).
   `26.2`, `26.3`. Актуальный релиз — **26.3**.
 - Bedrock Edition: актуальная версия — **1.26.50.4**.
 - Всегда проверяйте версии в живых источниках (см. `docs/java/versions.md`),
-  а не по памяти.
+  а не по памяти. В репозитории версии **обновляются автоматически**:
+  `scripts/refresh_versions.py` → `versions.json` (CI: ежедневно).
 
 ## Проверено реальной сборкой
 
 Эти комбинации не «документация по слухам», а результат настоящей сборки:
 
+- **Java-мод, Fabric 26.3** — официальный шаблон `FabricMC/fabric-example-mod`
+  (ветка `26.3`): JDK 25, Loom 1.18-SNAPSHOT, Gradle 9.x, Loader 0.19.5,
+  Fabric API 0.163.0+26.3 → `modid-1.0.0.jar`.
 - **Java-мод, NeoForge 26.3** — собрано `mysticmod-1.0.0.jar`: JDK 25,
   Gradle 9.2.1, ModDevGradle 2.0.148, `neo_version=26.3.0.95`.
   Шаблон — официальный `github.com/NeoForgeMDKs/MDK-26.3-ModDevGradle`.
-- **Java-мод, Fabric** — собран `modid-1.0.0.jar` на MC 1.21 (Loom 1.18.4,
+- **Java-мод, Forge 26.3** — `26.3-66.0.13`, ForgeGradle 6.0.54, **Gradle 8.x**, JDK 21.
+- **Java-мод, Fabric 1.21** — собран `modid-1.0.0.jar` на MC 1.21 (Loom 1.18.4,
   Gradle 9.7.1). Важно: Loom 1.18.x требует **JDK 25**, не 21.
 - **Плагин, Paper 26.3** — собран `exampleplugin-1.0.0.jar`
   (`paper-api 26.3.build.207-stable`, Maven 3.9.9, JDK 25).
@@ -81,13 +107,7 @@ MinecraftForge, NeoForged, FabricMC, PaperMC).
   `mystic_creatures.mcaddon` (сущность + блок + скрипт): валидны по
   чек-листу `docs/bedrock/validation.md`.
 
-Важно про поддержку версий: **Fabric и Quilt пока не поддерживают MC 26.x**
-(маппинги Yarn и Quilt-mappings останавливаются на `1.21.11`). NeoForge,
-Forge и Paper идут следом за Minecraft с разной задержкой — проверяйте каждое
-ядро отдельно. **Всегда проверяйте, что итоговый jar не пустой** (BUILD
-SUCCESSFUL + пустой jar = провал).
-
-Разбор всех неподдерживаемых случаев — в `docs/java/unsupported.md`.
+Разбор всех неподдерживаемых случаев — в [`docs/java/unsupported.md`](docs/java/unsupported.md).
 
 ## Официальная документация
 
@@ -102,8 +122,21 @@ SUCCESSFUL + пустой jar = провал).
 - Brigadier (команды): https://github.com/Mojang/brigadier
 - Minecraft Wiki: https://minecraft.wiki/
 
-## Первоисточники (форки в этом аккаунте)
+## Зеркала официальной документации (в этом аккаунте)
 
-- Fabric — https://github.com/ssr33242/fabric-docs
-- NeoForge — https://github.com/ssr33242/neoforge-docs
-- Forge — https://github.com/ssr33242/forge-docs
+Полные копии официальных доков, синхронизируются автоматически
+(GitHub Actions, ежедневно):
+
+| Документация | Зеркало | Источник |
+|---|---|---|
+| Fabric | [`ssr33242/fabric-docs`](https://github.com/ssr33242/fabric-docs) | [FabricMC/fabric-docs](https://github.com/FabricMC/fabric-docs) |
+| NeoForge | [`ssr33242/neoforge-docs`](https://github.com/ssr33242/neoforge-docs) | [neoforged/Documentation](https://github.com/neoforged/Documentation) |
+| Forge | [`ssr33242/forge-docs`](https://github.com/ssr33242/forge-docs) | [MinecraftForge/Documentation](https://github.com/MinecraftForge/Documentation) |
+
+В зеркале Fabric есть гайд по портированию (`develop/porting/`), в зеркале
+NeoForge — миграционные primers.
+
+## Лицензия
+
+MIT — см. [`LICENSE`](LICENSE). Документация и шаблоны свободны для
+использования и изменения.

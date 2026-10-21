@@ -1,0 +1,16 @@
+# Сборка сайта
+site/
+.site-src/
+
+# Python
+__pycache__/
+*.pyc
+
+# Gradle / Java
+.gradle/
+build/
+*.class
+
+# Система
+.DS_Store
+Thumbs.db
