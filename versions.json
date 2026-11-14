@@ -1,6 +1,6 @@
 {
   "_comment": "Машинно-читаемый реестр версий. Обновляется скриптом scripts/refresh_versions.py (CI: .github/workflows/refresh-versions.yml). Проверено 2026-10-21.",
-  "checked_at": "2026-11-13",
+  "checked_at": "2026-11-14",
   "minecraft": {
     "latest_release": "26.3",
     "latest_snapshot": "26.4-snapshot-8",
@@ -232,7 +232,7 @@
     }
   ],
   "live_versions": {
-    "checked_at": "2026-11-13",
+    "checked_at": "2026-11-14",
     "fabric_loader": "0.20.1",
     "fabric_loader_stable": "0.19.5",
     "fabric_api_latest": "0.166.2+26.4",
@@ -245,7 +245,7 @@
     "forgegradle": "6.0.54",
     "quilt_loader": "0.30.2",
     "quilt_loader_beta": "0.31.0-beta.6",
-    "architectury_api": "22.0.5",
+    "architectury_api": "13.0.12",
     "paper": "26.3",
     "modmenu": "21.0.0 (26.3) / 22.0.0-alpha.2 (26.4-snapshot-3)",
     "minecraft_release": "26.3",
