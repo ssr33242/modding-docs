@@ -1,9 +1,9 @@
 {
   "_comment": "Машинно-читаемый реестр версий. Обновляется скриптом scripts/refresh_versions.py (CI: .github/workflows/refresh-versions.yml). Проверено 2026-10-21.",
-  "checked_at": "2026-11-14",
+  "checked_at": "2026-11-17",
   "minecraft": {
     "latest_release": "26.3",
-    "latest_snapshot": "26.4-snapshot-8",
+    "latest_snapshot": "26.4-snapshot-9",
     "recent_releases": [
       "26.3",
       "26.2",
@@ -232,24 +232,24 @@
     }
   ],
   "live_versions": {
-    "checked_at": "2026-11-14",
+    "checked_at": "2026-11-17",
     "fabric_loader": "0.20.1",
     "fabric_loader_stable": "0.19.5",
     "fabric_api_latest": "0.166.2+26.4",
     "fabric_api_for_26_3": "0.164.0+26.3",
     "fabric_loom": "1.20.0-alpha.31",
     "yarn_latest": "1.21.11+build.6",
-    "neoforge": "26.3.0.103",
+    "neoforge": "26.3.0.110",
     "moddevgradle": "2.0.148",
     "forge": "26.3-66.1.8",
     "forgegradle": "6.0.54",
     "quilt_loader": "0.30.2",
     "quilt_loader_beta": "0.31.0-beta.6",
-    "architectury_api": "13.0.12",
+    "architectury_api": "22.0.6",
     "paper": "26.3",
     "modmenu": "21.0.0 (26.3) / 22.0.0-alpha.2 (26.4-snapshot-3)",
     "minecraft_release": "26.3",
-    "minecraft_snapshot": "26.4-snapshot-8"
+    "minecraft_snapshot": "26.4-snapshot-9"
   },
   "sources": {
     "minecraft": "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json",
