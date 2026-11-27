@@ -1,9 +1,9 @@
 {
   "_comment": "Машинно-читаемый реестр версий. Обновляется скриптом scripts/refresh_versions.py (CI: .github/workflows/refresh-versions.yml). Проверено 2026-10-21.",
-  "checked_at": "2026-11-26",
+  "checked_at": "2026-11-27",
   "minecraft": {
     "latest_release": "26.3",
-    "latest_snapshot": "26.4-pre-1",
+    "latest_snapshot": "26.4-pre-2",
     "recent_releases": [
       "26.3",
       "26.2",
@@ -232,15 +232,15 @@
     }
   ],
   "live_versions": {
-    "checked_at": "2026-11-26",
+    "checked_at": "2026-11-27",
     "fabric_loader": "0.20.1",
     "fabric_loader_stable": "0.19.5",
     "fabric_api_latest": "0.167.1+26.4",
     "fabric_api_for_26_3": "0.164.0+26.3",
-    "fabric_loom": "1.20.0-alpha.32",
+    "fabric_loom": "1.19.6",
     "yarn_latest": "1.21.11+build.6",
     "neoforge": "21.1.268",
-    "moddevgradle": "2.0.148",
+    "moddevgradle": "2.0.149",
     "forge": "26.3-66.1.9",
     "forgegradle": "6.0.54",
     "quilt_loader": "0.30.2",
@@ -249,7 +249,7 @@
     "paper": "26.3",
     "modmenu": "21.0.0 (26.3) / 22.0.0-alpha.2 (26.4-snapshot-3)",
     "minecraft_release": "26.3",
-    "minecraft_snapshot": "26.4-pre-1"
+    "minecraft_snapshot": "26.4-pre-2"
   },
   "sources": {
     "minecraft": "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json",
